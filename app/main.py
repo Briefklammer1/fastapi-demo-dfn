@@ -3,12 +3,9 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from . import models, database
-from .database import engine
 from .routers import post, user, auth, vote
 
-
-models.Base.metadata.create_all(bind=engine)  # überflüssig wenn man alembic benutzt
+# models.Base.metadata.create_all(bind=engine)  überflüssig wenn man alembic benutzt
 
 app = FastAPI()
 
@@ -19,8 +16,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
-
-database.connect_to_db()
 
 app.include_router(post.router)
 app.include_router(user.router)
