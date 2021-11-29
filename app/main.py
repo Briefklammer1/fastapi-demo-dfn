@@ -1,0 +1,36 @@
+# to activate venv use "C:\repos\FccFastApi\venv\Scripts\activate.ps1"
+# to start server use "uvicorn app.main:app --reload"
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from . import models, database
+from .database import engine
+from .routers import post, user, auth, vote
+
+
+models.Base.metadata.create_all(bind=engine)  # überflüssig wenn man alembic benutzt
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origings=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+database.connect_to_db()
+
+app.include_router(post.router)
+app.include_router(user.router)
+app.include_router(auth.router)
+app.include_router(vote.router)
+
+@app.get("/")
+def root():
+    return {"message": "This is only the root."}
+
+
+
+
