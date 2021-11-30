@@ -26,4 +26,4 @@ app.include_router(vote.router)
 
 @app.get("/", response_model=schemas.Message)
 def root():
-    return {"message": "Hello REWE!"}
+    return {"message": "Hallo REWE! "}
