@@ -1,0 +1,22 @@
+sudo apt update && sudo update apt upgrade -y
+sudo apt install python3.8
+sudo apt install python3-pip
+sudo pip3 install virtualenv
+sudo apt install postgresql postgresql-contrib -y
+
+psql -U postgres # local connections
+sudo cat /etc/passwd # see all users
+sudo -i -u postgres # switch to postgres users
+psql -U postgres # log in to postgres as postgres users
+\password postgres # set password 
+\q # to quit postgres
+exit # go back to root user
+cd /etc/postgresql/10/main  # hier version 10 
+sudo vi (oder nano) postgresql.conf # add listen_adresses under connection settings
+# bearbeiten mit shift und quit mit :q!
+sudo vi (oder nano) pg_hba.conf # change local to md5 und IPv4 to 0.0.0.0/0 and Ipv6 to ::/0
+sudo service postgresql restart# restarts
+
+# better is to add another user the root --> safer
+
+
