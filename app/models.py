@@ -1,9 +1,5 @@
-from typing import List
-from sqlalchemy.orm import backref, relationship
-from sqlalchemy.orm.relationships import foreign
-from sqlalchemy.sql.expression import null, text
-
-from app.schemas import PostBase
+from sqlalchemy.orm import relationship
+from sqlalchemy.sql.expression import text
 from .database import Base
 from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP, ForeignKey
 
