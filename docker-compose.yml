@@ -16,7 +16,8 @@ services:
     image: postgres
     environment:
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=test_db
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
     volumes:
       - postgres-db:/var/lib/postgresql/data
 

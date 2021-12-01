@@ -20,3 +20,6 @@ sudo service postgresql restart# restarts
 # better is to add another user the root --> safer
 
 
+docker-compose exec postgres psql -h localhost -U postgres --dbname=postgres
+
+
