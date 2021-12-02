@@ -1,6 +1,3 @@
-# to activate venv use "C:\repos\FccFastApi\venv\Scripts\activate.ps1"
-# to start server use "uvicorn app.main:app --reload"
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
